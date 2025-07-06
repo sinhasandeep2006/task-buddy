@@ -1,6 +1,6 @@
-// export const BASE_URL = "https://task-buddy-1-k8jd.onrender.com";
+export const BASE_URL ="https://task-buddy-2-i7fh.onrender.com";
 
-export const BASE_URL = "http://localhost:7001";
+// export const BASE_URL = "http://localhost:7001";
 
 // utils/apiPaths.js
 export const API_PATHS = {
