@@ -1,7 +1,8 @@
 import { signInWithGoogle } from "../../utils/firebase";
 import axiosInstance from "../../utils/axoisInstance"
 import toast from "react-hot-toast";
-import image from "../../assets/images/image.png"
+// import image from "../../assets/images/image.png"
+import Side from "./Side"
 const AuthLayout = ({ children }) => {
   const handleGoogleLogin = async () => {
     try {
@@ -64,11 +65,10 @@ const AuthLayout = ({ children }) => {
         <div className="absolute w-[300px] h-[300px] border border-pink-300 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute w-[700px] h-[700px] border border-pink-300 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute w-[250px] h-[250px] border border-pink-300 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-        <img
-          src={image}
-          alt="Task Manager Preview"
-          className="absolute right-0  h-[90%] object-cover  z-10  w-[70%]"
-        />
+        <div  className="absolute right-0  h-[90%] object-cover  z-10  w-[70%]">
+<Side />
+        </div>
+        
       </div>
     </div>
   );
