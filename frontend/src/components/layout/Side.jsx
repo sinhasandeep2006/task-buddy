@@ -2,7 +2,7 @@ import React from 'react';
 
 function Side() {
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex h-50% bg-gray-100">
       {/* Sidebar */}
       <div className="w-64 bg-white shadow-md">
         <div className="p-4">
