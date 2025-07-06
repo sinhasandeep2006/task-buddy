@@ -43,7 +43,26 @@ const MyTask = () => {
     );
   };
 
-  
+  const handleDownloadResport = async () => {
+    try {
+      const response = await axiosInstance.get(API_PATHS.REPORTS.EXPORT_USERS, {
+        responseType: "blob",
+      });
+
+      // Create a URL for the blob
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "user_details.xlsx");
+      document.body.appendChild(link);
+      link.click();
+      link.parentNode.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("this is the error", error);
+      toast.error("failed to download");
+    }
+  };
   useEffect(() => {
     getALLTasks(filterStatus);
     return () => {};
@@ -56,15 +75,30 @@ const MyTask = () => {
         
             <h2 className="text-xl md:text-xl font-medium">My task</h2>
 
-          
-          {tabs?.[0]?.count > 0 && (
-              <TaskStatusTabs
-                tabs={tabs}
-                activeTab={filterStatus}
-                setActiveTab={setFilterStatus}
-              />
-          
-          )}
+         <button
+                       className="flex lg:hidden dowload-btn"
+                       onClick={handleDownloadResport}
+                     >
+                       <LuFileSpreadsheet className="text-lg" />
+                       Dowload Report
+                     </button>
+                   </div>
+                   {tabs?.[0]?.count > 0 && (
+                     <div className="flex items-center gap-3">
+                       <TaskStatusTabs
+                         tabs={tabs}
+                         activeTab={filterStatus}
+                         setActiveTab={setFilterStatus}
+                       />
+                       <button
+                         className="hidden lg:flex dowload-btn"
+                         onClick={handleDownloadResport}
+                       >
+                         <LuFileSpreadsheet className="text-lg" />
+                         Dowload Report
+                       </button>
+                     </div>
+                   )}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
