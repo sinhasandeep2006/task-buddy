@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:7001";
+export const BASE_URL = "https://task-buddy-fagv.onrender.com";
 
 // utils/apiPaths.js
 export const API_PATHS = {
