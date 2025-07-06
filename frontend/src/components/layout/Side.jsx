@@ -1,6 +1,6 @@
 import React from 'react';
 
-function App() {
+function Side() {
   return (
     <div className="flex min-h-screen bg-gray-100">
       {/* Sidebar */}
@@ -51,20 +51,52 @@ function App() {
         </div>
 
         <div className="grid grid-cols-2 gap-8 mb-8">
-          {/* Task Distribution */}
+          {/* Task Distribution - Pie Chart */}
           <div className="bg-white p-4 rounded shadow">
-            <h3 className="font-bold mb-2">Task Distribution</h3>
-            <ul className="space-y-1">
-              <li>Pending</li>
-              <li>In Progress</li>
-              <li>Completed</li>
+            <h3 className="font-bold mb-4">Task Distribution</h3>
+            <div className="flex justify-center">
+              <div className="relative w-32 h-32">
+                {/* Pie chart segments */}
+                <div className="absolute w-full h-full rounded-full border-8 border-gray-200"></div>
+                <div className="absolute w-full h-full rounded-full border-8 border-yellow-400 clip-pie-120"></div>
+                <div className="absolute w-full h-full rounded-full border-8 border-blue-400 clip-pie-240"></div>
+                <div className="absolute w-full h-full rounded-full border-8 border-green-400 clip-pie-30"></div>
+              </div>
+            </div>
+            <ul className="mt-4 space-y-1">
+              <li className="flex items-center">
+                <span className="w-3 h-3 bg-yellow-400 rounded-full mr-2"></span>
+                <span>Pending (50%)</span>
+              </li>
+              <li className="flex items-center">
+                <span className="w-3 h-3 bg-blue-400 rounded-full mr-2"></span>
+                <span>In Progress (25%)</span>
+              </li>
+              <li className="flex items-center">
+                <span className="w-3 h-3 bg-green-400 rounded-full mr-2"></span>
+                <span>Completed (25%)</span>
+              </li>
             </ul>
           </div>
 
-          {/* Priority Levels */}
+          {/* Priority Levels - Bar Graph */}
           <div className="bg-white p-4 rounded shadow">
-            <h3 className="font-bold mb-2">Task Priority Levels</h3>
-            <ul className="space-y-1">
+            <h3 className="font-bold mb-4">Task Priority Levels</h3>
+            <div className="h-40 flex items-end space-x-4">
+              <div className="flex-1 flex flex-col items-center">
+                <div className="w-full bg-red-400 h-3/4 rounded-t"></div>
+                <span className="text-xs mt-1">High</span>
+              </div>
+              <div className="flex-1 flex flex-col items-center">
+                <div className="w-full bg-yellow-400 h-1/2 rounded-t"></div>
+                <span className="text-xs mt-1">Medium</span>
+              </div>
+              <div className="flex-1 flex flex-col items-center">
+                <div className="w-full bg-green-400 h-1/4 rounded-t"></div>
+                <span className="text-xs mt-1">Low</span>
+              </div>
+            </div>
+            <ul className="mt-4 space-y-1">
               <li>High</li>
               <li>Medium</li>
               <li>Low</li>
@@ -101,8 +133,21 @@ function App() {
           </table>
         </div>
       </div>
+
+      {/* Add CSS for pie chart segments */}
+      <style>{`
+        .clip-pie-120 {
+          clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%);
+        }
+        .clip-pie-240 {
+          clip-path: polygon(50% 50%, 0% 50%, 0% 0%, 100% 0%, 100% 100%, 50% 100%);
+        }
+        .clip-pie-30 {
+          clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 50%);
+        }
+      `}</style>
     </div>
   );
 }
 
-export default App;
+export default Side;
