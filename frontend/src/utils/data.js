@@ -47,9 +47,21 @@ export const SIDE_MENU_USER_DATA = [
   },
   {
     id: "02",
+    label: "Create Task",
+    icon: LuSquarePlus,
+    path: "/admin/create-task",
+  },
+  {
+    id: "03",
     label: "My Tasks",
     icon: LuClipboardCheck,
     path: "/user/tasks",
+  },
+   {
+    id: "04",
+    label: "Team Members",
+    icon: LuUsers,
+    path: "/admin/users",
   },
   {
     id: "05",
