@@ -48,3 +48,13 @@
 .user-card{
   @apply bg-white p-4 rounded-xl shadow-md shadow-gray-100 border border-gray-200/50;
 }
+
+  .clip-pie-120 {
+          clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%);
+        }
+        .clip-pie-240 {
+          clip-path: polygon(50% 50%, 0% 50%, 0% 0%, 100% 0%, 100% 100%, 50% 100%);
+        }
+        .clip-pie-30 {
+          clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 50%);
+        }

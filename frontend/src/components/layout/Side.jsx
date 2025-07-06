@@ -133,19 +133,6 @@ function Side() {
           </table>
         </div>
       </div>
-
-      {/* Add CSS for pie chart segments */}
-      <style>{`
-        .clip-pie-120 {
-          clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%);
-        }
-        .clip-pie-240 {
-          clip-path: polygon(50% 50%, 0% 50%, 0% 0%, 100% 0%, 100% 100%, 50% 100%);
-        }
-        .clip-pie-30 {
-          clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 50%);
-        }
-      `}</style>
     </div>
   );
 }
