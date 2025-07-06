@@ -65,7 +65,7 @@ const AuthLayout = ({ children }) => {
         <div className="absolute w-[300px] h-[300px] border border-pink-300 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute w-[700px] h-[700px] border border-pink-300 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute w-[250px] h-[250px] border border-pink-300 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-        <div  className="absolute right-0  h-[90%] object-cover  z-10  w-[70%]">
+        <div  className="absolute right-0  z-10  ">
 <Side />
         </div>
         
