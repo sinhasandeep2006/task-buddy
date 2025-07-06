@@ -72,33 +72,33 @@ const MyTask = () => {
     <DashboardLayout activeMenu="My Tasks">
       <div className="my-5">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between">
-        
+         <div className="flex items-center justify-between gap-3">
             <h2 className="text-xl md:text-xl font-medium">My task</h2>
 
-         <button
-                       className="flex lg:hidden dowload-btn"
-                       onClick={handleDownloadResport}
-                     >
-                       <LuFileSpreadsheet className="text-lg" />
-                       Dowload Report
-                     </button>
-                   </div>
-                   {tabs?.[0]?.count > 0 && (
-                     <div className="flex items-center gap-3">
-                       <TaskStatusTabs
-                         tabs={tabs}
-                         activeTab={filterStatus}
-                         setActiveTab={setFilterStatus}
-                       />
-                       <button
-                         className="hidden lg:flex dowload-btn"
-                         onClick={handleDownloadResport}
-                       >
-                         <LuFileSpreadsheet className="text-lg" />
-                         Dowload Report
-                       </button>
-                     </div>
-                   )}
+          <button
+                        className="flex lg:hidden dowload-btn"
+                        onClick={handleDownloadResport}
+                      >
+                        <LuFileSpreadsheet className="text-lg" />
+                        Dowload Report
+                      </button>
+                    </div>
+                    {tabs?.[0]?.count > 0 && (
+                      <div className="flex items-center gap-3">
+                        <TaskStatusTabs
+                          tabs={tabs}
+                          activeTab={filterStatus}
+                          setActiveTab={setFilterStatus}
+                        />
+                        <button
+                          className="hidden lg:flex dowload-btn"
+                          onClick={handleDownloadResport}
+                        >
+                          <LuFileSpreadsheet className="text-lg" />
+                          Dowload Report
+                        </button>
+                      </div>
+                    )}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
