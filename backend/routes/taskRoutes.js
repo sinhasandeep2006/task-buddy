@@ -15,7 +15,7 @@ router.get("/", protect, getTasks);
 router.get("/:id", protect, getTaskById); 
 // Get task by ID
 
-router.post("/", protect, adminOnly, createTask); 
+router.post("/", protect, createTask); 
 // Create a task (Admin only)
 
 router.put("/:id", protect, updateTask); 

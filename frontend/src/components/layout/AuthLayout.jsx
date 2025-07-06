@@ -58,7 +58,8 @@ const AuthLayout = ({ children }) => {
       </div>
 
       {/* Right Section */}
-      <div className="hidden md:flex w-[45%] h-full relative bg-[#fff] items-center justify-center overflow-hidden z-20">
+      
+      <div className="hidden md:flex w-[80%] h-full relative bg-pink-50 items-center justify-center overflow-hidden z-20">
         {/* Concentric circles */}
         <div className="absolute w-[600px] h-[600px] border border-pink-500 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute w-[450px] h-[450px] border border-pink-400 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
@@ -66,16 +67,23 @@ const AuthLayout = ({ children }) => {
         <div className="absolute w-[700px] h-[700px] border border-pink-300 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute w-[250px] h-[250px] border border-pink-300 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         <div
-          className="
-      absolute right-0 top-1/2 -translate-y-1/2
-      h-[90%] w-[70%] z-10
-      transition-transform duration-300
-      hover:scale-[1.05] rounded-xl overflow-hidden
-    "
-        >
-          <Side />
-        </div>
+  className="
+    absolute right-0 top-1/2 -translate-y-1/2
+    h-[90%] w-[100%] z-10
+    transition-transform duration-300
+    rounded-xl overflow-hidden
+    flex items-center justify-center
+  "
+>
+  <div className="
+    bg-white/90 rounded-2xl shadow-xl p-4 
+    rotate-[4deg] scale-95 z-20 border border-pink-100
+  ">
+    <Side />
+  </div>
+</div>
       </div>
+      
     </div>
   );
 };

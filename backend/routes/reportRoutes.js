@@ -5,7 +5,7 @@ import { adminOnly, protect } from ".././middlewares/authMiddleware.js";
 const router = express.Router();
 
 // Auth Routes
-router.get("/export/tasks",protect,adminOnly, exportTaskReoport); // Register User
-router.get("/export/users", protect,adminOnly,exportUserReoport);       // Login User
+router.get("/export/tasks",protect, exportTaskReoport); // Register User
+router.get("/export/users", protect,exportUserReoport);       // Login User
 
 export default router;

@@ -1,9 +1,4 @@
 import React from "react";
-import { LuLayoutDashboard } from "react-icons/lu";
-import { FaTasks } from "react-icons/fa";
-import { IoMdPeople } from "react-icons/io";
-import { MdLogout } from "react-icons/md";
-import { BsPlusCircleFill } from "react-icons/bs";
 import { Doughnut, Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -15,17 +10,10 @@ import {
   BarElement,
 } from "chart.js";
 
-ChartJS.register(
-  ArcElement,
-  Tooltip,
-  Legend,
-  CategoryScale,
-  LinearScale,
-  BarElement
-);
+ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
 const Side = () => {
-  const donutData = {
+  const pieData = {
     labels: ["Pending", "In Progress", "Completed"],
     datasets: [
       {
@@ -43,129 +31,140 @@ const Side = () => {
       {
         label: "Priority",
         data: [1, 1, 2],
-        backgroundColor: ["#f43f5e", "#facc15", "#10b981"],
+        backgroundColor: ["#ef4444", "#facc15", "#10b981"],
+        borderRadius: 5,
+        barThickness: 25,
       },
     ],
   };
 
-  return (
-    <div className="w-full h-full flex bg-white rounded-xl overflow-hidden text-sm">
-      {/* Sidebar */}
-      <div className="w-[220px] bg-white border-r p-4">
-        <div className="flex flex-col items-center">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
-            alt="avatar"
-            className="w-16 h-16 rounded-full mb-2"
-          />
-          <div className="font-semibold">sandeep sinha</div>
-          <div className="text-xs text-gray-500 mb-4">
-            1233sandeepsinha@gmail.com
-          </div>
-        </div>
-        <ul className="space-y-3">
-          <li className="flex items-center gap-2 text-purple-600 font-medium">
-            <LuLayoutDashboard /> Dashboard
-          </li>
-          <li className="flex items-center gap-2 text-gray-700">
-            <BsPlusCircleFill /> Create Task
-          </li>
-          <li className="flex items-center gap-2 text-gray-700">
-            <FaTasks /> My Tasks
-          </li>
-          <li className="flex items-center gap-2 text-gray-700">
-            <IoMdPeople /> Team Members
-          </li>
-          <li className="flex items-center gap-2 text-gray-700">
-            <MdLogout /> Logout
-          </li>
-        </ul>
-      </div>
+  const barOptions = {
+  maintainAspectRatio: false,
+  responsive: true,
+  layout: {
+    padding: {
+      top: 10,
+      bottom: 0, // remove spacing below bars
+    },
+  },
+  scales: {
+    y: {
+      beginAtZero: true,
+      ticks: {
+        stepSize: 1,
+        padding: 2,
+      },
+      grid: {
+        drawBorder: false,
+        color: "#f3f4f6",
+      },
+    },
+    x: {
+      ticks: {
+        padding: 1
+      },
+      grid: {
+        drawBorder: false,
+        display: false,
+      },
+    },
+  },
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
+};
 
-      {/* Main Content */}
-      <div className="flex-1 p-6 overflow-y-auto">
-        <div className="mb-4">
-          <h1 className="text-lg font-semibold">Good Morning! sandeep sinha</h1>
-          <p className="text-sm text-gray-500">Sunday 6th Jul 2025</p>
-        </div>
+const pieOptions = {
+  plugins: {
+    legend: {
+      labels: {
+        font: {
+          size: 8.5, // change to your desired size (e.g., 14, 10, etc.)
+        },
+        color: "#555", // optional: adjust text color
+        boxWidth: 10,  // size of legend color boxes
+      },
+      position: "top", // or 'right', 'bottom', etc.
+    },
+  },
+  cutout: "70%", // for doughnut thickness
+};
+
+  return (
+    <div className="flex w-[575px]  bg-white rounded-3xl shadow-md overflow-hidden">
+      
+
+      {/* Content */}
+      <div className="flex-1 p-2">
+        <h2 className="text-xl font-semibold text-gray-800">Good Morning! User</h2>
+        <p className="text-sm text-gray-500 mb-1">Sunday 6th Jul 2025</p>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-          <div className="bg-white shadow-md p-4 rounded-md">
-            <div className="text-xl font-bold">4</div>
-            <div className="text-xs text-gray-600">Total Tasks</div>
+        <div className="flex items-center gap-7 mb-2">
+          <div className="bg-white shadow rounded-md px-2 py-1">
+            <p className="text-xs font-bold text-gray-800 text-center">4</p>
+            <p className="text-xs text-gray-500 text-center">Total Tasks</p>
           </div>
-          <div className="bg-white shadow-md p-4 rounded-md">
-            <div className="text-xl font-bold">2</div>
-            <div className="text-xs text-gray-600">Pending Tasks</div>
+          <div className="bg-white shadow rounded-md px-2 py-1">
+            <p className="text-xs font-bold text-gray-800 text-center">2</p>
+            <p className="text-xs text-gray-500 text-center">Pending Tasks</p>
           </div>
-          <div className="bg-white shadow-md p-4 rounded-md">
-            <div className="text-xl font-bold">0</div>
-            <div className="text-xs text-gray-600">In Progress Tasks</div>
+          <div className="bg-white shadow rounded-md px-2 py-1">
+            <p className="text-xs font-bold text-gray-800 text-center">0</p>
+            <p className="text-xs text-gray-500 text-center">In Progress</p>
           </div>
-          <div className="bg-white shadow-md p-4 rounded-md">
-            <div className="text-xl font-bold">2</div>
-            <div className="text-xs text-gray-600">Completed Tasks</div>
+          <div className="bg-white shadow rounded-md px-2 py-1">
+            <p className="text-xs font-bold text-gray-800 text-center">2</p>
+            <p className="text-xs text-gray-500 text-center">Completed</p>
           </div>
         </div>
 
         {/* Charts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <div className="bg-white shadow-md p-4 rounded-md">
-            <h2 className="font-semibold mb-4">Task Distribution</h2>
-            <Doughnut data={donutData} />
+        <div className="grid grid-cols-2 gap-1 mb-1">
+          <div className="bg-white rounded-lg shadow p-1">
+            <h4 className="font-semibold text-sm text-gray-700 mb-1">Task Distribution</h4>
+            <div className="w-[200px] h-[200px] mx-auto">
+  <Doughnut data={pieData} options={pieOptions} />
+</div>
           </div>
-          <div className="bg-white shadow-md p-4 rounded-md">
-            <h2 className="font-semibold mb-4">Task Priority Levels</h2>
-            <Bar data={barData} options={{ responsive: true }} />
+          <div className="bg-white rounded-lg shadow p-1">
+            <h4 className="font-semibold text-sm text-gray-700 mb-2">Task Priority Levels</h4>
+            <div className="h-48">
+            <Bar data={barData} options={barOptions} />
+            </div>
+            
           </div>
         </div>
 
         {/* Recent Tasks */}
-        <div className="bg-white shadow-md p-4 rounded-md">
+        <div className="bg-white rounded-lg shadow p-4">
           <div className="flex justify-between items-center mb-2">
-            <h2 className="font-semibold">Recent Tasks</h2>
-            <button className="text-xs text-gray-500 border rounded px-2 py-0.5">
-              See All
-            </button>
+            <h4 className="font-semibold text-sm text-gray-700">Recent Tasks</h4>
+            <button className="text-sm text-gray-500 hover:underline">See All</button>
           </div>
-          <table className="w-full text-xs">
+          <table className="w-full text-sm text-left">
             <thead>
-              <tr className="text-left text-gray-500 border-b">
-                <th className="py-1">Name</th>
-                <th className="py-1">Status</th>
-                <th className="py-1">Priority</th>
-                <th className="py-1">Created On</th>
+              <tr className="text-gray-500 border-b">
+                <th className="py-2">Name</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Created On</th>
               </tr>
             </thead>
             <tbody>
               <tr className="border-b">
-                <td className="py-1 font-medium">fefee</td>
-                <td className="py-1">
-                  <span className="bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full">
-                    Pending
-                  </span>
-                </td>
-                <td className="py-1">
-                  <span className="bg-green-100 text-green-600 px-2 py-0.5 rounded-full">
-                    Low
-                  </span>
-                </td>
-                <td className="py-1">N/A</td>
+                <td className="py-2 font-semibold text-gray-800">fefee</td>
+                <td><span className="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full">Pending</span></td>
+                <td><span className="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full">Low</span></td>
+                <td>N/A</td>
               </tr>
               <tr>
-                <td className="py-1 font-medium">thid</td>
-                <td className="py-1">
-                  <span className="bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full">
-                    Pending
-                  </span>
-                </td>
-                <td className="py-1">
-                  <span className="bg-red-100 text-red-600 px-2 py-0.5 rounded-full">
-                    High
-                  </span>
-                </td>
-                <td className="py-1">N/A</td>
+                <td className="py-2 font-semibold text-gray-800">thid</td>
+                <td><span className="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full">Pending</span></td>
+                <td><span className="text-xs bg-red-100 text-red-600 px-2 py-1 rounded-full">High</span></td>
+                <td>N/A</td>
               </tr>
             </tbody>
           </table>
